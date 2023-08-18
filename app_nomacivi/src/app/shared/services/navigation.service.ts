@@ -13,6 +13,11 @@ export class NavigationService {
 
   navigateTo(pageName: keyof typeof Pages, params?: any) {
     let route = Pages[pageName];
+
+    if (params === undefined) {
+      params = {};
+    }
+    
     this.navCtrl.navigateForward([route, params]);
   }
 

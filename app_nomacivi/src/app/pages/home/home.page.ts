@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
+import { NavigationService } from 'src/app/shared/services/navigation.service';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,9 @@ import { TranslateModule } from '@ngx-translate/core';
   ],
 })
 export class HomePage {
-  constructor() {}
+  constructor(
+    private navigationService: NavigationService
+  ) {}
 
   startGame() {
     // Implement logic for starting a new game
@@ -35,6 +38,7 @@ export class HomePage {
 
   settings() {
     // Implement logic for opening the settings
+    this.navigationService.navigateTo('settings');
   }
 
   viewInfo() {

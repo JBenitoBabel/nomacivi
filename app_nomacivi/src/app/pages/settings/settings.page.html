@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ 'p_home.b_settings' | translate }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+      <ion-row *ngFor="let lang of langs">
+        <ion-col>
+          <ion-button (click)="changeLanguage(lang)">
+            {{ lang.lang_description }}
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+</ion-content>
