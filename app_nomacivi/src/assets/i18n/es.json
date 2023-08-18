@@ -1,0 +1,16 @@
+{
+    "p_home": {
+        "b_start": "Comenzar Juego",
+        "heb_continue": "Continuar Juego",
+        "b_achievements": "Logros",
+        "b_story": "Historia",
+        "b_settings": "Ajustes",
+        "b_information": "Información"
+    },
+    "p_settings": {
+        "languages": {
+            "en": "English",
+            "es": "Español"
+        }
+    }
+}

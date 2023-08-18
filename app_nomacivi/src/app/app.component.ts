@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
+import { LanguageService } from './shared/services/language.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -9,5 +11,9 @@ import { IonicModule } from '@ionic/angular';
   imports: [IonicModule],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(
+    private languageService: LanguageService
+  ) {
+    this.languageService.initializeAppLanguage();
+  }
 }

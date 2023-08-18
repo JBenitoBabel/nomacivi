@@ -1,12 +1,18 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule],
+  imports: [
+    IonicModule, 
+    CommonModule, 
+    TranslateModule
+  ],
 })
 export class HomePage {
   constructor() {}
