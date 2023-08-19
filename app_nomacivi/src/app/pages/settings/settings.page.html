@@ -1,11 +1,15 @@
-<ion-header>
-  <ion-toolbar>
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
     <ion-title>{{ 'p_home.b_settings' | translate }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
     <ion-grid>
+      <h2>{{'p_settings.t_selectLanguage' | translate}}</h2>
       <ion-row *ngFor="let lang of langs">
         <ion-col>
           <ion-button (click)="changeLanguage(lang)">
@@ -13,5 +17,21 @@
           </ion-button>
         </ion-col>
       </ion-row>
+      <h2>{{'p_settings.t_selectSize' | translate}}</h2>
+      <ion-row>
+        <ion-col>
+          <ion-range 
+            color="primary"
+            mode="ios"
+            aria-label="Range text" 
+            [min]="minIndex" [max]="maxIndex"
+            [value]="valueRange"
+            (ionChange)="changeSize($event)">
+            <ion-icon size="small" slot="start" name="text"></ion-icon>
+            <ion-icon size="large" slot="end" name="text"></ion-icon>
+          </ion-range>
+        </ion-col>
+      </ion-row>
+      <p>{{'p_settings.t_exampleText' | translate}}</p>
     </ion-grid>
 </ion-content>

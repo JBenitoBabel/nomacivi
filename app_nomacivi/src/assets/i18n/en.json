@@ -11,6 +11,9 @@
         "languages": {
             "en": "English",
             "es": "Español"
-        }
+        },        
+        "t_selectLanguage": "Select language",
+        "t_selectSize": "Font Size",
+        "t_exampleText": "Example Text."
     }
 }
