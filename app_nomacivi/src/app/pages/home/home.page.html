@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header class="ion-no-border">
   <ion-toolbar>
     <ion-title>
       Main Menu
@@ -7,7 +7,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div class="button-container">
+  <ion-grid class="button-container">
     <ion-button (click)="startGame()">
       {{ 'p_home.b_start' | translate }}
     </ion-button>
@@ -26,9 +26,14 @@
     <ion-button (click)="viewInfo()">
       {{ 'p_home.b_information' | translate }}
     </ion-button>
-  </div>
-  
-  <div class="lottie-container">
-    <!-- Here you can insert your dog Lottie animation -->
-  </div>
+  </ion-grid>
 </ion-content>
+<ion-footer class="lottie-container ion-no-border">
+  <div class="animation-container">
+    <ng-lottie 
+      [options]="options"
+      width="100px"
+      (animationCreated)="animationCreated($event)">
+    </ng-lottie>
+  </div>
+</ion-footer>

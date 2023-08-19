@@ -9,8 +9,12 @@ import { environment } from './environments/environment';
 
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 
+//translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+//lottie
+import { provideLottieOptions } from 'ngx-lottie';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -34,6 +38,9 @@ bootstrapApplication(AppComponent, {
         }
       }
     )),
+    provideLottieOptions({
+      player: () => import(/* webpackChunkName: 'lottie-web' */ 'lottie-web'),
+    }),
     provideRouter(routes),
   ],
 });

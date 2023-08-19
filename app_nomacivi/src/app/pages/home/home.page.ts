@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
 import { NavigationService } from 'src/app/shared/services/navigation.service';
+
+import { AnimationItem } from 'lottie-web';
+import { AnimationOptions, LottieComponent } from 'ngx-lottie';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +15,28 @@ import { NavigationService } from 'src/app/shared/services/navigation.service';
   imports: [
     IonicModule, 
     CommonModule, 
-    TranslateModule
+    TranslateModule,
+    LottieComponent
   ],
 })
 export class HomePage {
+
+  options: AnimationOptions = {
+    path: '/assets/images/animations/fox.json',
+  };
+
+  private animationItem: AnimationItem | null = null;;
+
   constructor(
     private navigationService: NavigationService
   ) {}
+
+  animationCreated(animationItem: AnimationItem) {
+    this.animationItem = animationItem;
+    if (this.animationItem) {
+      this.animationItem.setSpeed(0.5);
+    }
+  }
 
   startGame() {
     // Implement logic for starting a new game
@@ -44,4 +62,5 @@ export class HomePage {
   viewInfo() {
     // Implement logic for viewing information
   }
+
 }
