@@ -13,7 +13,7 @@ import { AnimationOptions, LottieComponent } from 'ngx-lottie';
   styleUrls: ['home.page.scss'],
   standalone: true,
   imports: [
-    IonicModule, 
+    IonicModule,
     CommonModule, 
     TranslateModule,
     LottieComponent
@@ -31,7 +31,7 @@ export class HomePage {
     private navigationService: NavigationService
   ) {}
 
-  animationCreated(animationItem: AnimationItem) {
+  animationCreated(animationItem: AnimationItem):void {
     this.animationItem = animationItem;
     if (this.animationItem) {
       this.animationItem.setSpeed(0.5);
@@ -40,6 +40,7 @@ export class HomePage {
 
   startGame() {
     // Implement logic for starting a new game
+    this.navigationService.navigateTo('story')
   }
 
   continueGame() {

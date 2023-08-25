@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio del viaje / segundo viaje ...</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <p>{{ currentStoryText }}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-grid *ngIf="showOptions">
+    <ion-row *ngFor="let option of options">
+      <ion-col size="6">
+        <ion-button expand="full" (click)="selectOption(option)">
+          {{ option.text }}
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
