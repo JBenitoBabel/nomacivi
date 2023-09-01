@@ -3,11 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { StoryOption, TypeOption } from 'src/app/models/story';
 
-interface Option {
-  text: string;
-  nextStoryIndex: number;
-}
 
 @Component({
   selector: 'app-story',
@@ -20,7 +17,7 @@ export class StoryPage implements OnInit {
 
   currentStoryIndex: number = 0;
   currentStoryText: string = '';
-  options: Option[] = [];
+  options: StoryOption[] = [];
   showOptions: boolean = false;
 
   stories: string[] = [
@@ -29,14 +26,14 @@ export class StoryPage implements OnInit {
     // Agrega más fragmentos de la historia
   ];
 
-  storyOptions: Option[][] = [
+  storyOptions: StoryOption[][] = [
     [
-      { text: 'Explorar el bosque', nextStoryIndex: 1 },
-      { text: 'Ir hacia la montaña', nextStoryIndex: 2 },
+      { type: TypeOption.story, textButton: 'Opcion 1', nextStoryIndex: 1 },
+      { type: TypeOption.story, textButton: 'Opcion 2', nextStoryIndex: 2 },
     ],
     [
-      { text: 'Seguir el camino de la izquierda', nextStoryIndex: 3 },
-      { text: 'Tomar el camino de la derecha', nextStoryIndex: 4 },
+      { type: TypeOption.planet, textButton: 'planeta', nextStoryIndex: 3 },
+      {type: TypeOption.story, textButton: 'seguir', nextStoryIndex: 4 },
     ],
     // Define más opciones según la historia
   ];
@@ -47,7 +44,7 @@ export class StoryPage implements OnInit {
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
-      this.currentStoryIndex = parseInt(params['storyIndex']);
+      this.currentStoryIndex = params['storyIndex'] ? parseInt(params['storyIndex']) : 0;
       this.loadStory();
     });
   }
@@ -58,8 +55,26 @@ export class StoryPage implements OnInit {
     this.showOptions = this.options && this.options.length > 0;
   }
 
-  selectOption(option: Option) {
-    this.currentStoryIndex = option.nextStoryIndex;
-    this.loadStory();
+  selectOption(option: StoryOption) {
+
+    switch (option.type) {
+      case TypeOption.planet:
+        
+        break;
+      case TypeOption.camp:
+        
+        break;
+      case TypeOption.community:
+        
+        break;
+      case TypeOption.event:
+        
+        break;
+      default:
+        this.currentStoryIndex = option.nextStoryIndex ? option.nextStoryIndex : 0;
+        this.loadStory();
+        break;
+    }
+
   }
 }

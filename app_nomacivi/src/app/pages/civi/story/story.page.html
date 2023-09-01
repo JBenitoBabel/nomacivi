@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
     <ion-title>Inicio del viaje / segundo viaje ...</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,7 +16,7 @@
 
   <ion-grid *ngIf="showOptions">
     <ion-row *ngFor="let option of options">
-      <ion-col size="6">
+      <ion-col>
         <ion-button expand="full" (click)="selectOption(option)">
           {{ option.text }}
         </ion-button>

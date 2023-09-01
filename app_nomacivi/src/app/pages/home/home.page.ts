@@ -6,6 +6,7 @@ import { NavigationService } from 'src/app/shared/services/navigation.service';
 
 import { AnimationItem } from 'lottie-web';
 import { AnimationOptions, LottieComponent } from 'ngx-lottie';
+import { SQLiteService } from 'src/app/shared/services/sqlite';
 
 @Component({
   selector: 'app-home',
@@ -28,7 +29,8 @@ export class HomePage {
   private animationItem: AnimationItem | null = null;;
 
   constructor(
-    private navigationService: NavigationService
+    private navigationService: NavigationService,
+    private _sqlite: SQLiteService
   ) {}
 
   animationCreated(animationItem: AnimationItem):void {
@@ -39,6 +41,8 @@ export class HomePage {
   }
 
   startGame() {
+    console.log('startGame');
+    
     // Implement logic for starting a new game
     this.navigationService.navigateTo('story')
   }
