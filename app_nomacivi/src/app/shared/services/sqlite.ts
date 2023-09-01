@@ -8,9 +8,9 @@ import { CapacitorSQLite, SQLiteDBConnection, SQLiteConnection, capSQLiteSet,
 @Injectable()
 
 export class SQLiteService {
-    sqlite: SQLiteConnection;
+    sqlite: SQLiteConnection = new SQLiteConnection(null);
     isService: boolean = false;
-    platform: string;
+    platform: string = '';;
     sqlitePlugin: any;
     native: boolean = false;
 
